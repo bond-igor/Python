@@ -30,14 +30,14 @@ class Matrix:
         self.list_2 = list_2
     # функция сложения матриц
     def __add__(self):
-        matr = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        res_matrix = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
         for i in range(len(self.list_1)):
 
             for j in range(len(self.list_2[i])):
-                matr[i][j] = self.list_1[i][j] + self.list_2[i][j]
+                res_matrix[i][j] = self.list_1[i][j] + self.list_2[i][j]
 
-        return matr
+        return res_matrix
 
     # функция вывода результата сложения матриц
     def __str__(self, matr):
@@ -45,7 +45,7 @@ class Matrix:
 
 
 
-my_matrix = Matrix([[5, 18, 11], [6, 17, 23], [41, 50, 9]],
-                   [[45, 8, 2], [6, 7, 93], [24, 5, 97]])
+my_matrix = Matrix([[15, 1, 4], [6, 78, 3], [49, 74, 5]],
+                   [[5, 4, 78], [15, 97, 9], [4, 87, 48]])
 
 print(my_matrix.__str__(my_matrix.__add__()))
