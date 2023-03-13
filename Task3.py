@@ -7,6 +7,6 @@
 # Введите число n: 3
 # n + nn + nnn = 369
 
-num = int(input('Введите число n: '))
-print(f'n = {num}; nn = {num*2}; nnn = {num*3}.')
-print(f'сумма чисел = {num+num*2+num*3}')
+num = input('Введите число n: ')
+res = int(num) + int(num*2) + int(num*3)
+print(f'n - {num}; nn - {num*2}; nnn - {num*3}. = {res}')

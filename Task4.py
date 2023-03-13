@@ -18,11 +18,13 @@
 
 revenue = int(input("Введите выручку фирмы: "))
 expense = int(input('Введите издержки фирмы: '))
-if (revenue > expense):
+if revenue > expense:
     profit = revenue - expense
     print(f'Финансовый результат - прибыль в {profit} руб')
     print(f'Рентабельность выручки = {(profit/expense)*100}%')
     number_staff = int(input("Введите численность сотрудников фирмы: "))
     print(f'Прибыль фирмы на одного сотрудника = {profit/number_staff}')
+elif revenue == expense:
+    print("Вышли в ноль")
 else:
     print(f'Финансовый результат - убыток в {expense-revenue} руб')
