@@ -22,30 +22,30 @@
 Подсказка: сложение элементов матриц выполнять поэлементно — первый элемент
 первой строки первой матрицы складываем с первым элементом первой строки второй матрицы и т.д.
 """
-
+#Создание класса
 class Matrix:
    # перегрузка конструктора
-    def __init__(self, list_1, list_2):
-        self.list_1 = list_1
-        self.list_2 = list_2
-    # функция сложения матриц
-    def __add__(self):
+    def __init__(self, my_list):
+        self.my_list = my_list
+
+    # перегрузка метода для сложения матриц
+    def __add__(self, other):
         res_matrix = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
-        for i in range(len(self.list_1)):
+        for i in range(len(self.my_list)):
 
-            for j in range(len(self.list_2[i])):
-                res_matrix[i][j] = self.list_1[i][j] + self.list_2[i][j]
+            for j in range(len(other.my_list[i])):
+                res_matrix[i][j] = self.my_list[i][j] + other.my_list[i][j]
 
         return res_matrix
 
-    # функция вывода результата сложения матриц
-    def __str__(self, matr):
-        return str('\n'.join([' '.join([str(j) for j in i]) for i in matr]))
+   # перегрузка метода вывода, для вывода матрицы в привычном виде.
+    def __str__(self):
+        return str('\n'.join([' '.join([str(j) for j in i]) for i in self.my_list]))
 
 
-
-my_matrix = Matrix([[15, 1, 4], [6, 78, 3], [49, 74, 5]],
-                   [[5, 4, 78], [15, 97, 9], [4, 87, 48]])
-
-print(my_matrix.__str__(my_matrix.__add__()))
+#Клиентский код
+matrix_1 = Matrix([[15, 1, 4], [6, 78, 3], [49, 74, 5]])
+matrix_2 = Matrix([[5, 4, 78], [15, 97, 9], [4, 87, 48]])
+res_matrix = Matrix(matrix_1 + matrix_2)
+print(f"{matrix_1} \n + \n {matrix_2} \n = \n {res_matrix}")
